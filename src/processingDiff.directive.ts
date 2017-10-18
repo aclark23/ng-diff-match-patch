@@ -8,6 +8,8 @@ import { Diff, DiffOp } from './diffMatchPatch';
 export class ProcessingDiffDirective implements OnInit, OnChanges {
   @Input() left: string;
   @Input() right: string;
+  @Input() insClass: string;
+  @Input() delClass: string;
 
   public constructor(
     private el: ElementRef,
@@ -37,10 +39,10 @@ export class ProcessingDiffDirective implements OnInit, OnChanges {
         html += diff[1];
       }
       if (diff[0] === DiffOp.Delete) {
-        html += '<del>' + diff[1] + '</del>';
+        html += '<del' + ( this.delClass == undefined ? 'class="' + this.delClass + '"' : '' ) + '>' + diff[1] + '</del>';
       }
       if (diff[0] === DiffOp.Insert) {
-        html += '<ins>' + diff[1] + '</ins>';
+        html += '<ins' + ( this.insClass == undefined ? 'class="' + this.insClass + '"' : '' ) + '>' + diff[1] + '</ins>';
       }
     }
     html += '</div>';

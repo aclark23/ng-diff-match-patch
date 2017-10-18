@@ -2303,10 +2303,10 @@ var ProcessingDiffDirective = (function () {
                 html += diff[1];
             }
             if (diff[0] === -1 /* Delete */) {
-                html += '<del>' + diff[1] + '</del>';
+                html += '<del' + (this.delClass == undefined ? 'class="' + this.delClass + '"' : '') + '>' + diff[1] + '</del>';
             }
             if (diff[0] === 1 /* Insert */) {
-                html += '<ins>' + diff[1] + '</ins>';
+                html += '<ins' + (this.insClass == undefined ? 'class="' + this.insClass + '"' : '') + '>' + diff[1] + '</ins>';
             }
         }
         html += '</div>';
@@ -2320,6 +2320,14 @@ var ProcessingDiffDirective = (function () {
         core.Input(),
         __metadata$3("design:type", String)
     ], ProcessingDiffDirective.prototype, "right", void 0);
+    __decorate$4([
+        core.Input(),
+        __metadata$3("design:type", String)
+    ], ProcessingDiffDirective.prototype, "insClass", void 0);
+    __decorate$4([
+        core.Input(),
+        __metadata$3("design:type", String)
+    ], ProcessingDiffDirective.prototype, "delClass", void 0);
     ProcessingDiffDirective = __decorate$4([
         core.Directive({
             selector: '[processingDiff]'

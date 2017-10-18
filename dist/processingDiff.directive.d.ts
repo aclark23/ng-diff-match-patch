@@ -5,6 +5,8 @@ export declare class ProcessingDiffDirective implements OnInit, OnChanges {
     private dmp;
     left: string;
     right: string;
+    insClass: string;
+    delClass: string;
     constructor(el: ElementRef, dmp: DiffMatchPatchService);
     ngOnInit(): void;
     ngOnChanges(): void;
