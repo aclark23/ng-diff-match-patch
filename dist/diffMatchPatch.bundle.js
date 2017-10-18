@@ -2303,10 +2303,10 @@ var ProcessingDiffDirective = (function () {
                 html += diff[1];
             }
             if (diff[0] === -1 /* Delete */) {
-                html += '<del' + (this.delClass == undefined ? 'class="' + this.delClass + '"' : '') + '>' + diff[1] + '</del>';
+                html += '<del' + (this.delClass != undefined ? 'class="' + this.delClass + '"' : '') + '>' + diff[1] + '</del>';
             }
             if (diff[0] === 1 /* Insert */) {
-                html += '<ins' + (this.insClass == undefined ? 'class="' + this.insClass + '"' : '') + '>' + diff[1] + '</ins>';
+                html += '<ins' + (this.insClass != undefined ? 'class="' + this.insClass + '"' : '') + '>' + diff[1] + '</ins>';
             }
         }
         html += '</div>';
